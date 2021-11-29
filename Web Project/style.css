@@ -1,0 +1,119 @@
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+.navbar {
+    padding: 0.8 rem;
+}
+
+.nav-item {
+    padding-right: 2em;    
+}
+
+div.insidebox{
+    padding-right: 200px;
+    padding-left: 200px;
+}
+div.welc{
+    padding-top: 30px;
+}
+img.imaq{
+    padding-top: 50px;
+}
+.fun{
+    margin-bottom: 2rem;
+}
+.gif{
+    padding-left: 50px;
+    max-width: 300px;
+}
+.form-container{
+    box-shadow: 0px 0px 10px 0px #000;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+input.login1{
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+.typebutton{
+    max-width: 90px;
+    max-height: 20px;
+}
+.containerstaff{
+    max-width: 150px;
+    margin-left: 320px;
+    padding-bottom: 5px;
+}
+.navr{
+    margin-left: 5px;
+}
+.my-custom-scrollbar {
+    position: relative;
+    height: 760px;
+    overflow: auto;
+    }
+.table-wrapper-scroll-y {
+    display: block;
+    }
+.card{
+    margin-top: 20px;
+    height: 750px;
+    padding-top: 20px;
+}
+.toggle{
+    max-width: 100px;
+}
+.prof{
+    max-width: 600px;
+}
+.main{
+    height: 300px;
+}
+.jumbotron-fluid{
+    height: 450px;
+}
+.my-custom-scrollbar2{
+    position:relative;
+    height: 210px;
+    overflow: auto;
+}
+/*footer {
+    position: ;
+    right: 0;bottom:0;left:0;
+  }
+  */
+.deleteCat{
+    height: 80px;
+    width: 300px;
+    text-align: center;
+}
+
+.delcat{
+    text-align: center;
+}
+.btn-primary{
+    background-color: #ff654d !important;
+    border-color: #ff654d !important;
+}
+/*a:link{
+    color: #999 !important;
+}
+a:visited{
+    color: #999 !important;
+}
+a:hover{
+    color: #6b6b6b !important;
+}
+a:active{
+    color: #000 !important;
+}
+*/
