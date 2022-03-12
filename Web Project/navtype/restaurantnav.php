@@ -10,7 +10,12 @@ else if($_SESSION['status'] == "inactive"){
 }
 $disable = "disabled";
 if(isset($_SESSION['resId']) && $_SESSION["verified"] == 1){
-    $disable = "";
+  if(isset($_SESSION["application"])){
+    $a = $_SESSION["application"];
+    if($a == "accepted"){
+      $disable = "";
+    }
+  }
 }
 $ridd=$_SESSION['resId'];
 ?>

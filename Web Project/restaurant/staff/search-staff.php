@@ -55,7 +55,13 @@ else{
                             <td><?php echo $row["dateAdded"] ?></td>
                             <td>
                                 <button type="button" class="btn btn-success mr-2 updbtn" data-toggle="modal" data-target="#updModal">Edit</button>
-                                <button type="button" class="btn btn-danger delbtn" data-toggle="modal" data-target="#delModal">Delete</button>
+                                <form action="staff-delete.php" method="POST">
+                                    <input type="hidden" name="id" value="<?= $row['id']?>">
+                                    <input type="hidden" name="un" value="<?= $row['username']?>">
+                                    <input type="hidden" name="fn" value="<?= $row['firstName']?>">
+                                    <input type="hidden" name="ln" value="<?= $row['lastName']?>">
+                                    <button type="submit" class="btn btn-danger delbtn" name="delete">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     <?php }

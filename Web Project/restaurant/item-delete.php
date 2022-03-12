@@ -10,7 +10,7 @@ Category delete successful.</a>
     }
 ?>
 <div class="container" style="margin-left:400px">
-    <div class="jumbotron jumbotron-fluid mt-2 delcat" style="height:450px;width:600px">
+    <div class="jumbotron jumbotron-fluid mt-2 delcat" style="height:500px;width:600px">
                     <div class="container">
                         <h1 class="display-4">Delete Item</h1>
                         <hr class="mb-3">
@@ -45,18 +45,21 @@ Category delete successful.</a>
                                     if($result = $conn->query($sql)){
                                         if($result->num_rows > 0){ 
                                             ?>
-                                            <form aciont='landing.php?select=deleteItem' method='POST' class='mb-2'>                                          
+                                            <form aciont='landing.php?select=deleteItem' method='POST' class='mb-2'>
+                                            <label>Item name:</label>                                   
                                             <select name='item'>
                                             <?php
                                             while($row = $result->fetch_assoc()){
                                                 ?>  
-                                                    <option value="<?php echo $row['catId']?>"><?php echo strtoupper($row['name']) ?></option>
+                                                    <option value="<?php echo $row['id']?>"><?php echo strtoupper($row['name']) ?></option>
                                                 <?php
                                             }
                                             unset($_POST['idcat']);   
                                             ?>      
                                             </select>
                                             <br>
+                                            <label>Reason:</label>    
+                                            <textarea type="textarea" name="reason" class="form-control ml-5" style="width:470px"></textarea>
                                             <button type="submit" name="itembtn" class="btn btn-danger mt-3">Delete</button>
                                             </form>     
                             <?php
@@ -66,11 +69,20 @@ Category delete successful.</a>
                                 if(isset($_POST['itembtn'])){
                                     echo "delete";
                                     $id = $_POST['item'];
-                                    $sql = "DELETE FROM menuitem WHERE catId = $id";
-                                    if($conn->query($sql)){
-                                        echo "<div class='alert alert-success' role='alert'>
-                                        Category delete successful.</a> 
-                                        </div>";
+                                    $reason = $_POST['reason'];
+                                    $sql = "SELECT name FROM menuitem where id = $id";
+                                    if($result = $conn->query($sql)){
+                                        $row = $result->fetch_assoc();
+                                        $name = $row['name'];
+                                        $sql = "INSERT INTO deleteitem (itemId, name, category, reason) VALUES ($id , '$name' , 'item', '$reason' )";
+                                        if($conn->query($sql)){
+                                            $sql = "DELETE FROM menuitem WHERE id = $id";
+                                            if($conn->query($sql)){
+                                                echo "<div class='alert alert-success' role='alert'>
+                                                Item delete successful.</a> 
+                                                </div>";
+                                            }
+                                        }
                                     }
                                 }
                             ?>

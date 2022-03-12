@@ -6,7 +6,7 @@ $name = $price = "";
         $id =  $_POST['id'];
         $name = $_POST['name'];
         $price = $_POST['price'];
-        $sql = "UPDATE menuitem SET name = '$name', price = $price WHERE catId = $id";
+        $sql = "UPDATE menuitem SET name = '$name', price = $price WHERE id = $id";
         if($conn->query($sql)){
             echo "<div class='alert alert-success' role='alert'>
             Item Update successful.</a> 
@@ -50,19 +50,21 @@ $name = $price = "";
                                     if($result = $conn->query($sql)){
                                         if($result->num_rows > 0){ 
                                             ?>
-                                            <form aciont='landing.php?select=updateItem' method='POST' class='mb-2'>                                          
+                                            <form action='landing.php?select=updateItem' method='POST' class='mb-2'>                                          
                                             <select name='item'>
                                             <?php
                                             while($row = $result->fetch_assoc()){
                                                 ?>  
-                                                    <option value="<?php echo $row['catId']?>"><?php echo strtoupper($row['name']) ?></option>
+                                                    <option value="<?php echo $row['id']?>"><?php echo strtoupper($row['name']) ?></option>
                                                 <?php
                                                 
                                             }
+                                            $itName = $row["name"];
                                             unset($_POST['idcat']);   
                                             ?>      
                                             </select>
                                             <br>
+                                            <input type="hidden" name="itemName" value="<?= $itName?>">
                                             <button type="submit" name="itembtn" class="btn btn-primary mt-3">Select</button>
                                             </form>     
                             <?php
@@ -72,7 +74,8 @@ $name = $price = "";
                                 if(isset($_POST['itembtn'])){
                                     echo "<hr>";
                                     $id = $_POST['item'];
-                                    $sql = "SELECT * FROM menuitem WHERE catId = $id";
+                                    $name = $_POST["itemName"];
+                                    $sql = "SELECT * FROM menuitem WHERE id = $id";
                                     if($result = $conn->query($sql)){
                                         if($result->num_rows > 0){ 
                                             ?>

@@ -1,14 +1,23 @@
 <?php
-$prov = $city =$resName= $fName =$mName =$lName =$cNum =$add1 =$bar =$city =$prov ="";
+$prov = $city =$resName= $fName =$mName =$lName =$cNum =$add1 =$bar =$city =$prov =$open =$close ="";
 if(isset($_SESSION['resId'])){
-$resName = $_SESSION['resName'];
-$fName = $_SESSION['fName'];
-$lName = $_SESSION['lName'];
-$cNum = $_SESSION['cNum'];
-$add1 = $_SESSION['add1'];
-$bar = $_SESSION['bar'];
-$city = $_SESSION['city'];
-$prov = $_SESSION['prov'];
+  $id = $_SESSION['resId'];
+  $sql = "SELECT * FROM restaurant WHERE id = $id";
+  if($result = $conn->query($sql)){
+    $row = $result->fetch_assoc();
+
+  }
+$resName = $row['restaurantName'];
+$fName = $row['firstName'];
+$mName = $row['middleName'];
+$lName = $row['lastName'];
+$cNum = $row['contactNum'];
+$add1 = $row['address1'];
+$bar = $row['barangay'];
+$city = $row['city'];
+$prov = $row['province'];
+$open = $row['open'];
+$close = $row['close'];
 $btndsbl = "";
 }
 else{
@@ -41,7 +50,7 @@ if($_GET['acnt']== "edit"){
   <div class="row welcome">
     <div class= "col">
     <br> 
-    <form class="form-container prof" action="https://isproj2b.benilde.edu.ph/ReservEat/restaurant/prof-res-save.php" method="post">
+    <form class="form-container prof" action="restaurant/prof-res-save.php" method="post">
       <div class="form-row">
         <h1 class="col-md-12">Restaurant Profile</h1>
         <hr class="col-md-12">
@@ -87,6 +96,14 @@ if($_GET['acnt']== "edit"){
         <div class="form-group">
           <label for="homeadd">Barangay</label>
           <input type="text" class="form-control" id="bar" name="bar" placeholder="Enter Barangay" value="<?= $bar?>" <?=$lock?>>
+        </div>
+        <div class="form-group">
+          <label for="open">Open</label>
+          <input type="time" class="form-control" id="open" name="open" placeholder="Opening Hours" value="<?= $open?>" <?=$lock?>>
+        </div>
+        <div class="form-group">
+          <label for="close">Close</label>
+          <input type="time" class="form-control" id="close" name="close" placeholder="Closing Hours" value="<?= $close?>" <?=$lock?>>
         </div>
         <!-- province-city-zip row start-->
       <div class="form-row">

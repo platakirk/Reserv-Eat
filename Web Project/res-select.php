@@ -105,16 +105,19 @@ if (isset($_POST['choosetable'])){
                     <h6><?=$addresslong?></h4>
                     <h6><?=$address?></h4>
                     <br>
-                    <h6>tags:
+                    <h6>Opening hours:
                 <?php 
-                    $sql = "SELECT * FROM tag WHERE resId = $id";
+                    $sql = "SELECT open, close FROM restaurant WHERE id = $id";
                     if($result = $conn->query($sql)){
                         if($result->num_rows > 0){        
-                            while($row = $result->fetch_assoc()){
-                                $tag = $row["tagName"]; ?>
-                                <button type="button" class="btn btn-outline-primary btn-sm" disabled><?= $tag ?></button>
+                            $row = $result->fetch_assoc();
+                                $open = $row["open"]; 
+                                $close = $row["close"];
+                                $open = date("h:i a", strtotime($open));
+                                $close = date("h:i a", strtotime($close));  ?>
+                                
+                                <h7><?= $open . '-' . $close?></h7>
                                 <?php
-                            }
                         }
                     }
                 ?>
@@ -122,10 +125,11 @@ if (isset($_POST['choosetable'])){
                     <hr>
                     <h1>MENU</h1> 
                     <div>
-                    <table class="table table-bordered table-dtriped">
+                    <table class="table table-bordered table-striped">
                         <thead class="text-light bg-dark">
                             <tr>
                                 <th>Category</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>Price</th>
                             </tr>

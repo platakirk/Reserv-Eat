@@ -39,12 +39,14 @@ if (isset($_POST['update'])){
 
 if (isset($_POST['delete'])){
     $new_tableid = $_POST['tableid'];
-    $delete = mysqli_query($conn,"DELETE FROM res_table WHERE id = '$new_tableid' ");
+    /*$delete = mysqli_query($conn,"DELETE FROM res_table WHERE id = '$new_tableid' ");
             if ($delete){
                 echo "<script> alert('Updated')</script>'";
             }else{
                 echo "<script> alert('GG')</script>'";
             }
+            */
+    header("location: tabledelete.php?id=$new_tableid");
 }
 
 ?>

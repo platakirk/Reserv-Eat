@@ -30,6 +30,13 @@ $del_staff_error = "<div class='alert alert-danger' role='alert'>
 Delete unsuccessful.</a> 
 </div>";
 
+$app_pending = "<div class='alert alert-warning' role='alert'>
+Your application is still pending.</a> 
+</div>";
+$app_declined = "<div class='alert alert-danger' role='alert'>
+Your application is still declined.</a> 
+</div>";
+
 if(isset($_SESSION['verified'])){
   if($_SESSION['verified'] == 0){
     echo $ver_alert;
@@ -80,5 +87,14 @@ if(isset($_SESSION["addresprof"])){
     unset($_SESSION["addresprof"]);
   }
 }
+if(isset($_SESSION['application'])){
+  $a = $_SESSION["application"];
+  if($a == "pending"){
+    echo $app_pending;
+  }
+  else if ($a == "declined"){
+    echo $app_declined;
+  }
 
+}
 ?>

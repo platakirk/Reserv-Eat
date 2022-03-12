@@ -1,4 +1,5 @@
 <?php
+
 $fName =$mName =$lName =$cNum =$add1 =$bar =$city =$prov ="";
 if(isset($_SESSION['cusId'])){
 $fName = $_SESSION['fName'];
@@ -12,7 +13,7 @@ $prov = $_SESSION['prov'];
 $btndsbl = "";
 }
 else{
-  $btndsbl = "disabled";
+  $btndsbl = "disabled"; 
 }
 
 $lock = "disabled";
@@ -35,6 +36,7 @@ $view = "<div class='form-group col-md-6'>
 if($_GET['acnt']== "edit"){
   $lock = "";
 }
+
 ?>
 <!--customer profile -->
     <!--username-password row start-->
@@ -93,6 +95,9 @@ if($_GET['acnt']== "edit"){
       <a type="button" href="profile.php?acnt=edit" name="updBtn" class="btn btn-success <?=$btndsbl?>">Edit</a>&nbsp;
       <button type="submit" name="saveBtn" class="btn btn-primary" <?=$lock?>>Save</button>
       <!-- ///////////////////// -->
+      <Br>
+      <br>
+      <a type="button" href="delete.php" name="delBtn" class="btn btn-danger <?=$btndsbl?>">Delete Account</a>
       </form>
     </div>
   </div>

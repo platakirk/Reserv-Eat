@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = 'Main page';
+$title = 'Feedback page';
 require_once 'includes/header.php';
 require_once 'includes/nav.php';
 require 'connection.php';

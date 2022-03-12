@@ -3,10 +3,10 @@ $title = 'Welcome page';
 require_once 'includes/header.php';
 require_once 'includes/nav.php';
 
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+/*if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
   header("location: landing.php");
   exit;
-}
+}*/
 ?>
 
 <div class="container padding welc">
@@ -29,7 +29,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
         <hr class="my-4">
         <p>Become part of us now.</p>
         <p class="lead">
-        <a class="btn btn-primary btn-lg" href="signin.php?type=restaurant" style="color:" role="button">Register</a>
+        <a class="btn btn-primary btn-lg" href="signin.php?type=restaurant" role="button">Register</a>
         <br>
         <p>Already have an account?</p>
         <a class="btn btn-primary btn-lg" href="login.php?type=restaurant" role="button">Login</a>

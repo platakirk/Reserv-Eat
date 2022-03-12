@@ -4,7 +4,7 @@
 <?php
 session_start();
 require 'connection.php'; 
-$title = 'Annual Subscription';
+$title = 'Feedback Page';
 require_once 'includes/header.php';
 
 require_once 'includes/nav.php';
@@ -92,6 +92,9 @@ include "restaurant/sidebar-res.php";
                                                                 $fname = $getname['firstName'];
                                                                 $lname = $getname['lastName'];
                                                                 $name = $fname." ".$lname;
+                                                                if(!isset($fname) || isset($lname)){
+                                                                    $fname = $lname = "";
+                                                                }
                                                             echo '<tr>
                                                             <td>'.$name.'</td>
                                                             <td>'.$feedback.'</td>

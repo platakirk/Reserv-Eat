@@ -26,16 +26,19 @@ Category deleted successfully.</a>
                                         if($result->num_rows > 0){
                                             while($row = $result->fetch_assoc()){
                                                 ?>  
-                                                    <option value="<?php echo $row['id']?>"><?php echo strtoupper($row['category']) ?></option>
+                                                    <option value="<?= $row['id']?>"><?php echo strtoupper($row['category']) ?></option>
                                                 <?php
-                                            }         
+                                            }  
                                             $conn->close();         
                                         }
                                     }
                                 ?>
                             </select>
                             <br>
-                            <button type="submit" name="delbtn" onclick="return confirm('Are you sure you want to delete category? Deleting this will delete all items in it.')" class="btn btn-danger mt-5">Delete</button>
+                            <br>
+                            <label>Reason:</label>    
+                            <textarea type="textarea" name="reason" class="form-control ml-5" style="width:470px"></textarea>
+                            <button type="submit" name="delbtn" onclick="return confirm('Are you sure you want to delete category? Deleting this will delete all items in it.')" class="btn btn-danger mt-3">Delete</button>
                             </form>         
                     </div>
     </div>

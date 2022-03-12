@@ -16,17 +16,22 @@ if(isset($_SESSION["resIdko"])){
                 if($rowcnt > 0){
                     while($row = $result->fetch_assoc()) { ?>
                     
-                        <tr>
-
+                    <tr>
                             <?php if(!($copy == $row["category"])){?>
                                 <td><?php echo $row["category"] ?> </td>
                             <?php $copy = $row["category"]; } else { ?>
                                 <td> </td>
                             <?php } ?>
+                            <td>
+                                    <?php
+                                        if(isset($row["image"])){
+                                            ?><img src="<?php echo $row["image"]; ?>" class="img-fluid">
+                                       <?php
+                                       }?>
+                            </td>
                             <td><?php echo $row["name"] ?></td>
-                            <td><?php echo $row["price"] ?></td>
-
-                        </tr>
+                            <td>Php <?php echo $row["price"] ?></td>
+                            </tr>
                     <?php }
                 }
             $result->close();     

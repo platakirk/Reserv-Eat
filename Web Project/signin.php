@@ -37,7 +37,8 @@ else{
     <div class= "col">
     <hr>
     <br> 
-    <form action="signin.php<?= $type?>" class="form-container" method="post">
+    <form id="example4" action="signin.php<?= $type?>" class="form-container" method="post">
+      <input type="hidden" name ="type" value="<?= $a?>">
       <h2 class="col-md-12"><?php echo $head?></h1>
       <hr class="col-md-12">
         <!-- username row start -->
@@ -64,6 +65,16 @@ else{
             <input type="email" class="form-control" id="emailadd" name="emailAdd" placeholder="Enter Email Address">
         </div>
         <!-- ////////////-->
+        <div class="form-group">
+          <?php
+            if ($a == "customer"){
+              ?>
+              <label>Birthday</label>
+              <input type="date" class="form-control" name="bday">
+              <?php
+            }
+          ?>
+        </div>
         <h5 class="text-danger text-center"><?= $login_err; ?></h5>
         <!-- //////////////// -->
       <button type="submit" class="btn btn-primary">Register</button>

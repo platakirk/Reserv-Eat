@@ -20,8 +20,15 @@ if (isset($_GET["vkey"])){
             if($stmt->num_rows == 1){                  
                $sql = "update login set verified = 1 where vkey='$vkey'";
                 if($conn->query($sql)){
-                    echo "<h1>Your email has been verified.</h1>";
-                    echo "<a href='login.php?type=$type'>Login</a>";
+                    require_once "includes/header.php";
+                        echo "<div class='jumbotron text-center'>
+                        <h1 class='display-3'>Congratulations! Your email has been verified.</h1>
+                        <p class='lead'><strong>Enjoy your time with us.</strong></p>
+                        <hr>
+                        <p class='lead'>
+                          <a class='btn btn-primary btn-sm' href='login.php?type=$type' role='button'>Go back</a>
+                        </p>
+                      </div></a>";
                 }
             }
             // Close statement

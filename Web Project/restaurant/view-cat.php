@@ -7,7 +7,8 @@
                                             <table id="table" class="table table-bordered table-striped"> 
                                                 <thead class="text-light bg-dark">
                                                     <tr>      
-                                                        <th>Category</th>     
+                                                        <th>Category</th>
+                                                        <th>Image</th>     
                                                         <th>Name</th>       
                                                         <th>Price</th>
                                                     </tr>  

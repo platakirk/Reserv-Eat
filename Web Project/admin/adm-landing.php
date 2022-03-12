@@ -21,6 +21,14 @@
         <li class="nav-item">
             <a class="nav-link" role="tab" data-toggle="tab" href="#payment">Payment</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" role="tab" data-toggle="tab" href="#application">Applications</a>
+        </li><li class="nav-item">
+            <a class="nav-link" role="tab" data-toggle="tab" href="#reapproval">Reapproval</a>
+        </li>
+        </li><li class="nav-item">
+            <a class="nav-link" role="tab" data-toggle="tab" href="#dca">Deleted customer accounts</a>
+        </li>
     </ul>
     <div class="tab-content">
         <div role ="tabpanel" class="tab-pane active" id = "customer">
@@ -62,6 +70,7 @@
                         <th>City</th>
                         <th>Province</th>
                         <th>Status</th>
+                        <th>Applcation</th>
                         <th>Date Added</th>
                         <th>Actions</th>
                     </tr>
@@ -165,6 +174,61 @@
                 </table>
             </div>
         </div> 
+        <div role ="tabpanel" class="tab-pane mx-auto" id = "application">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar mt-3">
+                <table id="table" class="table table-bordered table-striped text-center" style="height: 800px">
+                    <tr>
+                        <th>id</th>
+                        <th>Restaurant name</th>
+                        <th>Owner</th>
+                        <th>Location</th>
+                        <th>Registered Date</th>
+                        <th>Actions</th>
+                    </tr>
+                    <?php
+                        require_once "application.php";
+                    ?>
+                </table>
+            </div>
+        </div>
+        <div role ="tabpanel" class="tab-pane mx-auto" id = "reapproval">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar mt-3">
+                <table id="table" class="table table-bordered table-striped text-center" style="height: 800px">
+                    <tr>
+                        <th>id</th>
+                        <th>Restaurant name</th>
+                        <th>Owner</th>
+                        <th>Location</th>
+                        <th>Reason</th>
+                        <th>Actions</th>
+                    </tr>
+                    <?php
+                        require_once "reapproval.php";
+                    ?>
+                </table>
+            </div>
+        </div>
+        <div role ="tabpanel" class="tab-pane mx-auto" id = "dca">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar mt-3">
+                <table id="table" class="table table-bordered table-striped text-center" style="height: 800px">
+                    <tr>
+                        <th>id</th>
+                        <th>Customer Id</th>
+                        <th>Login Id</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Reason</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                    <?php
+                        require_once "dca.php";
+                    ?>
+                </table>
+            </div>
+        </div>
     </div>
     
 </div>

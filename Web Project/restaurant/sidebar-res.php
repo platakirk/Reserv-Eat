@@ -9,6 +9,7 @@
                         <a class="dropdown-item" href="login-profile.php?acnt=view">Manage Login Account</a>
                         <a class="dropdown-item" href="profile.php?acnt=view">Manage User Profile</a>
                         <a class="dropdown-item" href="about.php?acnt=view">Manage restaurant description</a>
+                        <a class="dropdown-item" href="branch.php">Manage branches</a>
                     </div>
                 </div>          
                 <div class="dropdown">
